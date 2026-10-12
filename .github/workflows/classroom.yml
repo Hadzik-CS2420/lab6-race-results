@@ -1,6 +1,6 @@
 name: Autograding Tests
 on:
-  - push
+  - workflow_dispatch
   - repository_dispatch
 permissions:
   checks: write
@@ -111,7 +111,7 @@ jobs:
         test-name: "Insertion Sort: Reverse & Duplicates"
         command: cd build && ./run_tests --gtest_filter=InsertionSortTest.ReverseSortedAndDuplicates
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Selection Sort: Basic (2 pts)"
       id: selection-basic
@@ -120,7 +120,7 @@ jobs:
         test-name: "Selection Sort: Basic"
         command: cd build && ./run_tests --gtest_filter=SelectionSortTest.BasicSort
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Selection Sort: Edge Cases (2 pts)"
       id: selection-edge
@@ -129,7 +129,7 @@ jobs:
         test-name: "Selection Sort: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=SelectionSortTest.EmptyAndSingle
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Selection Sort: Already Sorted (2 pts)"
       id: selection-sorted
@@ -138,7 +138,7 @@ jobs:
         test-name: "Selection Sort: Already Sorted"
         command: cd build && ./run_tests --gtest_filter=SelectionSortTest.AlreadySorted
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Selection Sort: Reverse & Duplicates (2 pts)"
       id: selection-reverse
@@ -147,7 +147,7 @@ jobs:
         test-name: "Selection Sort: Reverse & Duplicates"
         command: cd build && ./run_tests --gtest_filter=SelectionSortTest.ReverseSortedAndDuplicates
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     # ===================================================================
     # O(n log n) Sorts (TODOs 4-9) -- 68 pts
@@ -160,7 +160,7 @@ jobs:
         test-name: "Merge Sort: Basic"
         command: cd build && ./run_tests --gtest_filter=MergeSortTest.BasicSort
         timeout: 10
-        max-score: 7
+        max-score: 5
 
     - name: "Merge Sort: Edge Cases (6 pts)"
       id: merge-edge
@@ -169,7 +169,7 @@ jobs:
         test-name: "Merge Sort: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=MergeSortTest.EmptyAndSingle
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Merge Sort: Already Sorted (6 pts)"
       id: merge-sorted
@@ -178,7 +178,7 @@ jobs:
         test-name: "Merge Sort: Already Sorted"
         command: cd build && ./run_tests --gtest_filter=MergeSortTest.AlreadySorted
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Merge Sort: Reverse & Duplicates (6 pts)"
       id: merge-reverse
@@ -187,7 +187,7 @@ jobs:
         test-name: "Merge Sort: Reverse & Duplicates"
         command: cd build && ./run_tests --gtest_filter=MergeSortTest.ReverseSortedAndDuplicates
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Quick Sort: Basic (6 pts)"
       id: quick-basic
@@ -196,7 +196,7 @@ jobs:
         test-name: "Quick Sort: Basic"
         command: cd build && ./run_tests --gtest_filter=QuickSortTest.BasicSort
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Quick Sort: Edge Cases (6 pts)"
       id: quick-edge
@@ -205,7 +205,7 @@ jobs:
         test-name: "Quick Sort: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=QuickSortTest.EmptyAndSingle
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Quick Sort: Already Sorted (6 pts)"
       id: quick-sorted
@@ -214,7 +214,7 @@ jobs:
         test-name: "Quick Sort: Already Sorted"
         command: cd build && ./run_tests --gtest_filter=QuickSortTest.AlreadySorted
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Quick Sort: Reverse & Duplicates (6 pts)"
       id: quick-reverse
@@ -223,7 +223,7 @@ jobs:
         test-name: "Quick Sort: Reverse & Duplicates"
         command: cd build && ./run_tests --gtest_filter=QuickSortTest.ReverseSortedAndDuplicates
         timeout: 10
-        max-score: 6
+        max-score: 5
 
     - name: "Heap Sort: Basic (5 pts)"
       id: heap-basic
@@ -232,7 +232,7 @@ jobs:
         test-name: "Heap Sort: Basic"
         command: cd build && ./run_tests --gtest_filter=HeapSortTest.BasicSort
         timeout: 10
-        max-score: 5
+        max-score: 4
 
     - name: "Heap Sort: Edge Cases (5 pts)"
       id: heap-edge
@@ -241,7 +241,7 @@ jobs:
         test-name: "Heap Sort: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=HeapSortTest.EmptyAndSingle
         timeout: 10
-        max-score: 5
+        max-score: 4
 
     - name: "Heap Sort: Already Sorted (5 pts)"
       id: heap-sorted
@@ -250,7 +250,7 @@ jobs:
         test-name: "Heap Sort: Already Sorted"
         command: cd build && ./run_tests --gtest_filter=HeapSortTest.AlreadySorted
         timeout: 10
-        max-score: 5
+        max-score: 4
 
     - name: "Heap Sort: Reverse & Duplicates (4 pts)"
       id: heap-reverse
@@ -259,7 +259,7 @@ jobs:
         test-name: "Heap Sort: Reverse & Duplicates"
         command: cd build && ./run_tests --gtest_filter=HeapSortTest.ReverseSortedAndDuplicates
         timeout: 10
-        max-score: 4
+        max-score: 3
 
     # ===================================================================
     # Race Analyzer (TODOs 10-13) -- 38 pts
@@ -272,7 +272,7 @@ jobs:
         test-name: "is_sorted: Sorted Vector"
         command: cd build && ./run_tests --gtest_filter=IsSortedTest.SortedVector
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "is_sorted: Unsorted Vector (2 pts)"
       id: issorted-unsorted
@@ -281,7 +281,7 @@ jobs:
         test-name: "is_sorted: Unsorted Vector"
         command: cd build && ./run_tests --gtest_filter=IsSortedTest.UnsortedVector
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "is_sorted: Edge Cases (2 pts)"
       id: issorted-edge
@@ -290,7 +290,7 @@ jobs:
         test-name: "is_sorted: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=IsSortedTest.EmptyAndSingle:IsSortedTest.AllEqual
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Median: Odd Size (3 pts)"
       id: median-odd
@@ -299,7 +299,7 @@ jobs:
         test-name: "Median: Odd Size"
         command: cd build && ./run_tests --gtest_filter=MedianTest.OddSize:MedianTest.SingleElement
         timeout: 10
-        max-score: 3
+        max-score: 2
 
     - name: "Median: Even Size (3 pts)"
       id: median-even
@@ -308,7 +308,7 @@ jobs:
         test-name: "Median: Even Size"
         command: cd build && ./run_tests --gtest_filter=MedianTest.EvenSize
         timeout: 10
-        max-score: 3
+        max-score: 2
 
     - name: "Median: Throws on Empty (2 pts)"
       id: median-throw
@@ -317,7 +317,7 @@ jobs:
         test-name: "Median: Throws on Empty"
         command: cd build && ./run_tests --gtest_filter=MedianTest.ThrowsOnEmpty
         timeout: 10
-        max-score: 2
+        max-score: 1
 
     - name: "Remove Duplicates: Basic (5 pts)"
       id: dedup-basic
@@ -326,7 +326,7 @@ jobs:
         test-name: "Remove Duplicates: Basic"
         command: cd build && ./run_tests --gtest_filter=RemoveDuplicatesTest.HasDuplicates:RemoveDuplicatesTest.NoDuplicates
         timeout: 10
-        max-score: 5
+        max-score: 4
 
     - name: "Remove Duplicates: Edge Cases (5 pts)"
       id: dedup-edge
@@ -335,7 +335,7 @@ jobs:
         test-name: "Remove Duplicates: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=RemoveDuplicatesTest.AllSame:RemoveDuplicatesTest.Empty
         timeout: 10
-        max-score: 5
+        max-score: 4
 
     - name: "Merge Sorted: Two Non-Empty (7 pts)"
       id: mergesorted-basic
@@ -344,7 +344,7 @@ jobs:
         test-name: "Merge Sorted: Two Non-Empty"
         command: cd build && ./run_tests --gtest_filter=MergeSortedTest.TwoNonEmpty
         timeout: 10
-        max-score: 7
+        max-score: 5
 
     - name: "Merge Sorted: Edge Cases (7 pts)"
       id: mergesorted-edge
@@ -353,7 +353,7 @@ jobs:
         test-name: "Merge Sorted: Edge Cases"
         command: cd build && ./run_tests --gtest_filter=MergeSortedTest.OneEmpty:MergeSortedTest.BothEmpty
         timeout: 10
-        max-score: 7
+        max-score: 5
 
     # ===================================================================
     # Report results
